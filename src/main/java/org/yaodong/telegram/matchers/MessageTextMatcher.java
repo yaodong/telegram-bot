@@ -2,7 +2,7 @@ package org.yaodong.telegram.matchers;
 
 import lombok.Getter;
 import org.yaodong.telegram.dispatch.Matcher;
-import org.yaodong.telegram.dispatch.Message;
+import org.yaodong.telegram.dispatch.Context;
 
 import java.util.regex.Pattern;
 
@@ -16,8 +16,8 @@ public class MessageTextMatcher implements Matcher {
     }
 
     @Override
-    public boolean match(Message message) {
-        return message.getUpdate().hasMessage() && pattern.matcher(message.getUpdate().getMessage().getText()).matches();
+    public boolean match(Context context) {
+        return context.getUpdate().hasMessage() && pattern.matcher(context.getUpdate().getMessage().getText()).matches();
     }
 
 }

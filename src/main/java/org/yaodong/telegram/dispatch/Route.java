@@ -22,9 +22,9 @@ public class Route {
         return new Route(handler, Arrays.asList(matchers));
     }
 
-    public boolean match(Message message) {
+    public boolean match(Context context) {
         for (Matcher matcher : matchers) {
-            if (!matcher.match(message)) {
+            if (!matcher.match(context)) {
                 return false;
             }
         }

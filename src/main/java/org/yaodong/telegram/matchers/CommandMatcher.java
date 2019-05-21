@@ -1,7 +1,7 @@
 package org.yaodong.telegram.matchers;
 
 import org.yaodong.telegram.dispatch.Matcher;
-import org.yaodong.telegram.dispatch.Message;
+import org.yaodong.telegram.dispatch.Context;
 
 public class CommandMatcher implements Matcher {
 
@@ -12,12 +12,12 @@ public class CommandMatcher implements Matcher {
     }
 
     @Override
-    public boolean match(Message message) {
-        if (!message.getUpdate().hasMessage()) {
+    public boolean match(Context context) {
+        if (!context.getUpdate().hasMessage()) {
             return false;
         }
 
-        String text = message.getUpdate().getMessage().getText();
+        String text = context.getUpdate().getMessage().getText();
         return text.startsWith("/" + name);
     }
 }

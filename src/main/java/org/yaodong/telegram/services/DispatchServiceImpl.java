@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.yaodong.telegram.configuration.Bot;
-import org.yaodong.telegram.dispatch.Message;
+import org.yaodong.telegram.dispatch.Context;
 import org.yaodong.telegram.dispatch.Route;
 import org.yaodong.telegram.entities.Profile;
 import org.yaodong.telegram.handlers.*;
@@ -34,13 +34,13 @@ public class DispatchServiceImpl implements DispatchService {
     @Override
     public void route(Update update, Bot bot) {
         Profile profile = profileService.fetch(update);
-        Message message = new Message(update, profile, bot);
-        findHandler(message).ifPresent((h) -> h.handle(message));
+        Context context = new Context(update, profile, bot);
+        findHandler(context).ifPresent((h) -> h.handle(context));
     }
 
-    private Optional<Handler> findHandler(Message message) {
+    private Optional<Handler> findHandler(Context context) {
         for (Route route : handlers) {
-            if (route.match(message)) {
+            if (route.match(context)) {
                 return Optional.of(route.getHandler());
             }
         }

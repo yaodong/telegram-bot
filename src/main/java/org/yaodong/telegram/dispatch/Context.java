@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-public class Message {
+public class Context {
 
     private final Bot bot;
 
@@ -26,7 +26,7 @@ public class Message {
 
     private Map<String, String> callbackQueryParams = new HashMap<>();
 
-    public Message(Update update, Profile profile, Bot bot) {
+    public Context(Update update, Profile profile, Bot bot) {
         this.update = update;
         this.profile = profile;
         this.bot = bot;

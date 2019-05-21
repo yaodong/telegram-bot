@@ -1,7 +1,7 @@
 package org.yaodong.telegram.handlers;
 
-import org.yaodong.telegram.dispatch.Message;
+import org.yaodong.telegram.dispatch.Context;
 
 public interface Handler {
-    void handle(Message message);
+    void handle(Context context);
 }

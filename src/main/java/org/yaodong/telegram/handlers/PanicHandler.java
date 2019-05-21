@@ -1,6 +1,6 @@
 package org.yaodong.telegram.handlers;
 
-import org.yaodong.telegram.dispatch.Message;
+import org.yaodong.telegram.dispatch.Context;
 
 import java.util.Random;
 
@@ -19,8 +19,8 @@ public class PanicHandler implements Handler {
     }
 
     @Override
-    public void handle(Message message) {
+    public void handle(Context context) {
         int index = random.nextInt(texts.length);
-        message.replyText(texts[index]);
+        context.replyText(texts[index]);
     }
 }
