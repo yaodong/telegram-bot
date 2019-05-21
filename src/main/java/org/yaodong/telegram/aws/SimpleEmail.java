@@ -26,7 +26,7 @@ public class SimpleEmail {
         }
     }
 
-    public boolean send(String toAddress, String subject, String body) {
+    public void send(String toAddress, String subject, String body) {
         Destination destination = Destination.builder().toAddresses(toAddress).build();
 
         Content subjectText = Content.builder().charset("UTF-8").data(subject).build();
@@ -46,9 +46,6 @@ public class SimpleEmail {
             client.sendEmail(request);
         } catch (SdkException e) {
             System.err.println("There was an error during sending email: " + e.getMessage());
-            return false;
         }
-
-        return true;
     }
 }
