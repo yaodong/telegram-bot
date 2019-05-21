@@ -1,6 +1,6 @@
 # Telegram Bot
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Build Status](https://travis-ci.org/yaodong/telegram-bot.svg?branch=master)](https://travis-ci.org/yaodong/telegram-bot)
 
 ## Requirements
 
@@ -27,3 +27,7 @@ Use command `/task` to add a task to [Things](https://culturedcode.com/things/).
 ```text
 /task remember the milk
 ```
+
+## Deployment
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
