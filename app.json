@@ -1,0 +1,10 @@
+{
+  "name": "Telegram Bot",
+  "description": "A telegram bot for personal use.",
+  "repository": "http://github.com/yaodong/telegram-bot",
+  "logo": "https://raw.githubusercontent.com/yaodong/telegram-bot/master/robot.png",
+  "keywords": [
+    "telegram",
+    "bot"
+  ]
+}
